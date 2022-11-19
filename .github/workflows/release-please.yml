@@ -1,0 +1,21 @@
+# Automates CHANGELOG generation, the creation of GitHub releases, and version bumps for specified project.
+
+on:
+  push:
+    branches:
+      - main
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          default-branch: main
+          path: .
+          release-type: node
+          package-name: '@cart180/website'
+          monorepo-tags: true
+          bump-minor-pre-major: true
+          bump-patch-for-minor-pre-major: true
+          prerelease: false

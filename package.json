@@ -1,0 +1,55 @@
+{
+  "name": "@cart180/website",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.2.0",
+    "@commitlint/config-conventional": "17.2.0",
+    "eslint": "8.27.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "husky": "4.3.8",
+    "lint-staged": "10.5.4",
+    "prettier": "2.7.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "prettier",
+      "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": ["node_modules", ".*"],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "trailingComma": "none",
+          "tabWidth": 2,
+          "semi": true,
+          "bracketSpacing": true,
+          "arrowParens": "avoid",
+          "proseWrap": "never",
+          "embeddedLanguageFormatting": "auto",
+          "htmlWhitespaceSensitivity": "ignore"
+        }
+      ]
+    },
+    "env": {
+      "browser": true,
+      "es2022": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --allow-empty",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "!.*": ["eslint . --fix"]
+  }
+}
