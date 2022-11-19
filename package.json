@@ -1,6 +1,6 @@
 {
   "name": "@cart180/website",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "lint": "eslint .",
     "format": "eslint . --fix"
@@ -21,7 +21,10 @@
       "prettier",
       "plugin:prettier/recommended"
     ],
-    "ignorePatterns": ["node_modules", ".*"],
+    "ignorePatterns": [
+      "node_modules",
+      ".*"
+    ],
     "rules": {
       "prettier/prettier": [
         "error",
@@ -50,6 +53,8 @@
     }
   },
   "lint-staged": {
-    "!.*": ["eslint . --fix"]
+    "!.*": [
+      "eslint . --fix"
+    ]
   }
 }
